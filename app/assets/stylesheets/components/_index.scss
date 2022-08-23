@@ -3,3 +3,18 @@
 @import "avatar";
 @import "form_legend_clear";
 @import "navbar";
+@import "pokemon_card";
+
+
+li {
+  list-style: none;
+}
+
+// .cards {
+//   display: flex;
+//   justify-content: space-between;
+// }
+.cards {
+  display: flex;
+  justify-content: center;
+}
