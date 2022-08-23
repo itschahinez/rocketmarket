@@ -6,23 +6,18 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @user = current_user
+    # raise
     @pokemon = Pokemon.find(params[:pokemon_id])
-    @booking = Booking.new(booking_params)
-    @booking.pokemon = @pokemon
-    @booking.user = @user
+    @booking = Booking.new(user: current_user, confirmed: false, pokemon: @pokemon)
     if @booking.save
-      redirect_to dashboard_path
+      DestroyBookingJob.set(wait: 1.minute).perform_later(@booking)
+      redirect_to pokemon_path(@pokemon)
     else
-      render "pokemons/:id/show", status: :unprocessable_entity
+      render "pokemons/show", status: :unprocessable_entity
     end
   end
 
   private
-
-  def booking_params
-    params.require(:booking).permit(:confirmed, :user_id, :pokemon_id)
-  end
 
   def set_user
   end
