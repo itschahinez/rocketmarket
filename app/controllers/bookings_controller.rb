@@ -6,7 +6,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-    # raise
     @pokemon = Pokemon.find(params[:pokemon_id])
     @booking = Booking.new(user: current_user, confirmed: false, pokemon: @pokemon)
     if @booking.save
