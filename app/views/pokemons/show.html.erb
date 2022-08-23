@@ -1,14 +1,23 @@
-<div>
-  <h1><%= @pokemon.name %></h1>
-    <div>
+<div class="container">
+  <div class="cards">
+    <div class="card-category">
+      <img class="poke-image" src="<%= @pokemon.picture %>" alt="Pokemon">
+    </div>
+    <div class="card-category">
+      <h1><%= @pokemon.name %></h1>
       <ul>
-        <li> <%= @pokemon.picture %></li>
         <li> <%= @pokemon.pokemon_type %></li>
         <li> <%= @pokemon.level %></li>
         <li> <%= @pokemon.price %></li>
-        <li> <%= @pokemon.description %></li>
+        <% if @pokemon.can_be_booked? %>
+          <%= button_to "Add to cart", pokemon_bookings_path(@pokemon), method: :post %>
+        <% elsif @pokemon.has_been_booked_by?(current_user) %>
+          <p>This pokemon is now in your cart !</p>
+        <% else %>
+          <p>This pokemon has already been booked</p>
+        <% end %>
       </ul>
     </div>
-    <br>
-    <%= link_to "Add to cart", pokemon_bookings_path(@pokemon) %>
+  </div>
+  <div class="description"><%= @pokemon.description %></div>
 </div>
