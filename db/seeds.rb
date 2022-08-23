@@ -24,7 +24,7 @@ Pokemon.create(
   name: 'Pikachu',
   level: 75,
   description: 'When several of these POKéMON gather, their electricity could build and cause lightning storms.',
-  type: 'Electric',
+  type: ['Electric'],
   seller: 1,
   picture: 'https://img.pokemondb.net/artwork/large/pikachu.jpg',
   price: 45_000
@@ -44,7 +44,7 @@ Pokemon.create(
   name: 'Wartortle',
   level: 27,
   description: 'Often hides in water to stalk unwary prey. For swimming fast, it moves its ears to maintain balance.',
-  type: "Water",
+  type: ["Water"],
   seller: 2,
   picture: 'https://img.pokemondb.net/artwork/large/wartortle.jpg',
   price: 15_000
@@ -54,7 +54,7 @@ Pokemon.create(
   name: 'Mewtwo',
   level: 99,
   description: 'It was created by a scientist after years of horrific gene splicing and DNA engineering experiments.',
-  type: 'Psychic',
+  type: ['Psychic'],
   seller: 1,
   picture: 'https://img.pokemondb.net/artwork/large/mewtwo.jpg',
   price: 100_000
