@@ -1,19 +1,19 @@
-<<<<<<< HEAD
-<div class = "card-product">
-<%# <img src="@pokemon.pictures" alt=""> %>
-=======
-<div>
->>>>>>> 35c2456b4260c4682e0e045849244fb2da67f6e8
-  <h1><%= @pokemon.name %></h1>
-    <div>
-      <ul>
-        <li> <%= @pokemon.picture %></li>
-        <li> <%= @pokemon.pokemon_type %></li>
-        <li> <%= @pokemon.level %></li>
-        <li> <%= @pokemon.price %></li>
-        <li> <%= @pokemon.description %></li>
-      </ul>
+<div class="container">
+  <div class="cards">
+    <div class="card-category">
+      <img class="poke-image" src="<%= @pokemon.picture %>" alt="Pokemon">
     </div>
-    <br>
-    <%= link_to "Add to cart", pokemon_bookings_path(@pokemon) %>
+    <div class="card-category">
+      <div class="detail">
+        <h1> <%= @pokemon.name %></h1>
+        <ul class="list">
+          <li> <%= @pokemon.pokemon_type %></li>
+          <li> <%= @pokemon.level %></li>
+          <li> <%= @pokemon.price %></li>
+        </ul>
+      </div>
+        <%= link_to "Add to cart", pokemon_bookings_path(@pokemon) %>
+    </div>
+  </div>
+  <div class="description"><%= @pokemon.description %></div>
 </div>
