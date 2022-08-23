@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   # root "articles#index
   devise_for :users
 
+  require "sidekiq/web"
+  authenticate :user, ->(user) { user.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   resources :pokemons, only: [ :index, :show, :destroy, :new, :create ] do
     resources :bookings, only: [ :update, :destroy, :create ]
   end

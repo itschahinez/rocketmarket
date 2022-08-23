@@ -1,6 +1,10 @@
 .avatar {
-  width: 40px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
+  box-shadow: $box-shadow;
+  border: 3px white solid;
+  margin-right: 20px;
 }
 .avatar-large {
   width: 56px;
