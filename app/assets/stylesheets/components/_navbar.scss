@@ -1,12 +1,33 @@
-.navbar-lewagon {
+.navbar-rocketmarket {
   justify-content: space-between;
   background: white;
+  box-shadow: $box-shadow;
+  position: relative;
+
+  h1 {
+    color: white;
+    padding-left: 20px;
+    font-weight: bolder;
+  }
+
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-rocketmarket .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.nav-link {
+  color: white;
+  font-weight: bold;
+  z-index: 100;
+  position: relative;
+
+  &:hover {
+    color: $james-color;
+  }
+}
+
+.nav-item {
+  padding-left: 30px;
+  margin-left: 40px;
 }
