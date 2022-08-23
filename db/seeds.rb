@@ -12,54 +12,51 @@ james = User.create(username: "James", balance: 0, admin: true, email: 'james@te
 puts "James done"
 puts 'Creating 5 pokemons'
 
-Pokemon.create(
+Pokemon.destroy_all
+
+Pokemon.create!(
   name: 'Bulbasaur',
   level: 10,
   description: 'A strange seed was planted on its back at birth. The plant sprouts and grows with this POKéMON.',
   pokemon_type: 'Grass Poison',
-  seller_id: jesse,
   picture: 'https://img.pokemondb.net/artwork/large/bulbasaur.jpg',
   price: 20_000
 )
 
 puts "POKEMON DONE"
 
-Pokemon.create(
+Pokemon.create!(
   name: 'Pikachu',
   level: 75,
   description: 'When several of these POKéMON gather, their electricity could build and cause lightning storms.',
-  seller: jesse.id,
   pokemon_type: 'Electric',
   picture: 'https://img.pokemondb.net/artwork/large/pikachu.jpg',
   price: 45_000
 )
 puts "POKEMON DONE"
-Pokemon.create(
+Pokemon.create!(
   name: 'Charizard',
   level: 80,
   description: 'Spits fire that is hot enough to melt boulders. Known to cause forest fires unintentionally.',
-  seller_id: james.id,
   pokemon_type: 'Fire/Flying',
   picture: 'https://img.pokemondb.net/artwork/large/charizard.jpg',
   price: 42_000
 )
 puts "POKEMON DONE"
-Pokemon.create(
+Pokemon.create!(
   name: 'Wartortle',
   level: 27,
   description: 'Often hides in water to stalk unwary prey. For swimming fast, it moves its ears to maintain balance.',
   pokemon_type: "Water",
-  seller_id: james.id,
   picture: 'https://img.pokemondb.net/artwork/large/wartortle.jpg',
   price: 15_000
 )
 puts "POKEMON DONE"
-Pokemon.create(
+Pokemon.create!(
   name: 'Mewtwo',
   level: 99,
   description: 'It was created by a scientist after years of horrific gene splicing and DNA engineering experiments.',
   pokemon_type: 'Psychic',
-  seller_id: jesse.id,
   picture: 'https://img.pokemondb.net/artwork/large/mewtwo.jpg',
   price: 100_000
 )
