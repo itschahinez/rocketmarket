@@ -16,6 +16,13 @@ class BookingsController < ApplicationController
     end
   end
 
+  def confirm
+    @my_bookings = Booking.where(user: current_user)
+    @my_bookings.each do |booking|
+      booking.confirmed = true
+    end
+  end
+
   private
 
   def set_user

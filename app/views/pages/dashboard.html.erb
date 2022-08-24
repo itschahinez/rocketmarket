@@ -1,14 +1,27 @@
 <div>
   <h2>Your cart<h2>
   <% @my_bookings.each do |booking| %>
-  <ul>
-    <li><%= booking.pokemon.name %> (Level <%= booking.pokemon.level %>)</li>
-  </ul>
+  <% if booking.confirmed == true %>
+    <ul>
+      <li><%= booking.pokemon.name %> (Level <%= booking.pokemon.level %>)</li>
+    </ul>
+    <% end %>
   <% end %>
-  <div class="total">
-    <h4>Total</h4>
-    <p><%= @bookings_sum %> P </p>
-    <h5>Your balance</h5>
-    <p><%= @my_balance %> P</p>
-  </div>
+    <div class="total">
+      <h4>Total</h4>
+      <p><%= @bookings_sum %> P </p>
+      <h5>Your balance</h5>
+      <p><%= @my_balance %> P</p>
+    </div>
+  <br>
+  <br>
+  <h2>Your previous orders</h2>
+  <% if booking.confirmed == false %>
+    <ul>
+      <li>
+      <%= booking.pokemon.name %> (Level <%= booking.pokemon.level %>)
+      <p><%= booking.price %> P</p>
+      </li>
+    </ul>
+    <% end %>
 </div>
