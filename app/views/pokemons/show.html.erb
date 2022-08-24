@@ -1,8 +1,6 @@
 <div class="container">
   <div class="card-show">
-    <div class="poke-image">
-      <img src="<%= @pokemon.picture %>" alt="Pokemon">
-    </div>
+    <%= image_tag @pokemon.picture, alt: "pokemon", class: "poke-image" %>
     <div class="detail">
       <div class="info">
         <h1><%= @pokemon.name %></h1>
@@ -15,19 +13,19 @@
           <li> Description <br> <%= @pokemon.description %></li>
           <br>
         </ul>
-        <div>
-          <% if @pokemon.can_be_booked? %>
-            <%= simple_form_for [@pokemon, @booking] do |f|%>
-              <%= f.input :pokemon, as: :hidden, value: @pokemon %>
-              <%= f.submit “Add to cart”, class: “button-cart” %>
-            <% end %>
-            <%#= button_to “Add to cart”, pokemon_bookings_path(@pokemon), method: :post %>
-          <% elsif @pokemon.has_been_booked_by?(current_user) %>
-            <p>This pokemon is now in your cart !</p>
-          <% else %>
-            <p>This pokemon has already been booked</p>
+      </div>
+      <div>
+        <% if @pokemon.can_be_booked? %>
+          <%= simple_form_for [@pokemon, @booking] do |f|%>
+            <%= f.input :pokemon, as: :hidden, value: @pokemon %>
+            <%= f.submit "Add to cart", class: "button-cart" %>
           <% end %>
-          </div>
+          <%#= button_to “Add to cart”, pokemon_bookings_path(@pokemon), method: :post %>
+        <% elsif @pokemon.has_been_booked_by?(current_user) %>
+          <p class="text-center">This pokemon is now in your cart !</p>
+        <% else %>
+          <p class="text-center">This pokemon has already been booked</p>
+        <% end %>
       </div>
      </div>
   </div>
