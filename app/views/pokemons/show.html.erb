@@ -8,8 +8,8 @@
         <h1> <%= @pokemon.name %></h1>
         <ul class="list">
           <li> <%= @pokemon.pokemon_type %></li>
-          <li> <%= @pokemon.level %></li>
           <li> <%= @pokemon.price %></li>
+          <li> <%= @pokemon.level %></li>
         </ul>
       </div>
         <%= link_to "Add to cart", pokemon_bookings_path(@pokemon) %>
