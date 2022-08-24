@@ -1,0 +1,14 @@
+<div>
+  <h2>Your cart<h2>
+  <% @my_bookings.each do |booking| %>
+  <ul>
+    <li><%= booking.pokemon.name %> (Level <%= booking.pokemon.level %>)</li>
+  </ul>
+  <% end %>
+  <div class="total">
+    <h4>Total</h4>
+    <p><%= @bookings_sum %> P </p>
+    <h5>Your balance</h5>
+    <p><%= @my_balance %> P</p>
+  </div>
+</div>
