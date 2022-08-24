@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   end
 
   get '/dashboard', to: 'pages#dashboard' # pour afficher toutes les commandes passees etc.
+  post '/confirm', to: 'bookings#confirm'
 end

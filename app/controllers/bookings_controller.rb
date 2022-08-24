@@ -20,7 +20,10 @@ class BookingsController < ApplicationController
     @my_bookings = Booking.where(user: current_user)
     @my_bookings.each do |booking|
       booking.confirmed = true
+      booking.save
     end
+    @bookings_sum = 0
+    redirect_to pokemons_path
   end
 
   private
