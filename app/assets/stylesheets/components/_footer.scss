@@ -1,0 +1,17 @@
+footer {
+  font-weight: bold;
+  background-color: $james-color;
+  color: white;
+  height: 50px;
+  box-shadow: $box-shadow;
+  text-align: center;
+  position: relative;
+  padding-top: 30px;
+  margin-top: 20px;
+
+  #slogan {
+    position: absolute;
+    left: 50%;
+    top: 25%;
+  }
+}
