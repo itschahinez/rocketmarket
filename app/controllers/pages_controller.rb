@@ -8,5 +8,12 @@ class PagesController < ApplicationController
     @pokemon_prices = @pokemon_ids.map { |id| Pokemon.find(id).price.to_i }
     @bookings_sum = @pokemon_prices.sum
     @my_balance = User.find(current_user.id).balance
+
+    def confirm
+      @my_bookings = Booking.where(user: current_user)
+      @my_bookings.each do |booking|
+        booking.confirmed = true
+      end
+    end
   end
 end
