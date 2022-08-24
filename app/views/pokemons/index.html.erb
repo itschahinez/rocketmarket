@@ -1,0 +1,25 @@
+<div class="container">
+  <ul class="cards">
+    <% @pokemons.each do |pokemon| %>
+      <div class="card col-4 card-border card-center">
+        <div class="card-img">
+          <img src="<%= pokemon.picture %>" alt="Pokemon picture" class="pokemon-img">
+        </div>
+        <div class="card-description">
+          <div id="description-align-1">
+            <li><strong><%= pokemon.name %></strong></li>
+            <li><p><strong><%= pokemon.price %>P</strong></p></li>
+          </div>
+          <div id="description-align-2">
+            <li><%= pokemon.pokemon_type %></li>
+            <li><p><strong>LVL<%= pokemon.level %></strong></p></li>
+          </div>
+        </div>
+        <div id="all-card-button">
+          <%= link_to "See details", pokemon_path(pokemon), class: "card-button" %>
+          <%= link_to "See your cart", dashboard_path, class: "card-button" %>
+        </div>
+      </div>
+    <% end %>
+  </ul>
+</div>

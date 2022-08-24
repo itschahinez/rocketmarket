@@ -5,7 +5,15 @@ class BookingsController < ApplicationController
   def show
   end
 
-  def confirm
+  def create
+    @pokemon = Pokemon.find(params[:pokemon_id])
+    @booking = Booking.new(user: current_user, confirmed: false, pokemon: @pokemon)
+    if @booking.save
+      DestroyBookingJob.set(wait: 1.minute).perform_later(@booking)
+      redirect_to pokemon_path(@pokemon)
+    else
+      render "pokemons/show", status: :unprocessable_entity
+    end
   end
 
   private

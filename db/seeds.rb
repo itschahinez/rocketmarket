@@ -1,8 +1,10 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 
+User.destroy_all
+
 puts 'Creating a buyer'
-User.create(username: "Sasha", balance: 150_000, email: 'sasha@bourgpalette.net', password: 'Pikachuuu', picture: 'https://resize.programme-television.ladmedia.fr/r/670,670/img/var/premiere/storage/images/tele-7-jours/news-tv/pokemon-sacha-remporte-enfin-une-ligue-une-premiere-en-22-ans-4646551/95633780-1-fre-FR/Pokemon-Sacha-remporte-enfin-une-ligue-une-premiere-en-22-ans.jpg')
+User.create(username: "Sasha", balance: 150_000, email: 'sasha@bourgpalette.net', password: 'Pikachuuu', picture: 'https://parismatch.be/app/uploads/2019/09/pokemon-sacha-pikachu-1100x715.jpg')
 puts" Sasha done"
 
 puts 'Creating the seller admins'
