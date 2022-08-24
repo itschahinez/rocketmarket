@@ -1,20 +1,20 @@
 <div class="container">
 <div class="cart-container">
   <h2>Your cart<h2>
-  <% if !@current_orders.empty? %>
-    <% @current_orders.each do |booking| %>
+  <% if !@my_current_orders.empty? %>
+    <% @my_current_orders.each do |booking| %>
         <ul>
-          <li><%= booking.pokemon.name %> (Level <%= booking.pokemon.level %>) - <%= booking.pokemon.price %> P</li>
+          <li><%= booking.pokemon.name %> (Level <%= booking.pokemon.level %>) - <%= number_with_delimiter(booking.pokemon.price, delimiter: ',') %> P</li>
         </ul>
       <% end %>
       <div class="total">
         <h4>Total</h4>
-        <p><%= @bookings_sum %> P </p>
+        <p><%= number_with_delimiter(@bookings_sum, delimiter: ',') %> P </p>
         <h5>Your balance</h5>
-        <p><%= @my_balance %> P</p>
+        <p><%= number_with_delimiter(@my_balance, delimiter: ',') %> P</p>
         <h5>Your balance after purchase</h5>
         <% balance = @my_balance - @bookings_sum %>
-        <p><%= balance < 0 ? "You need to add at least #{-balance} P to your account to make this purchase." : "#{balance} P" %></p>
+        <p><%= balance < 0 ? "You need to add at least #{number_with_delimiter(-balance, delimiter: ',')} P to your account to make this purchase." : "#{number_with_delimiter(balance, delimiter: ',')} P" %></p>
       </div>
 
       <div class="button-checkout">
@@ -25,12 +25,12 @@
   <% end %>
 
 
-  <% if !@past_orders.empty? %>
+  <% if !@my_past_orders.empty? %>
     <h2>Your previous orders</h2>
-    <% @past_orders.each do |booking| %>
+    <% @my_past_orders.each do |booking| %>
       <ul>
         <li>
-        <p><%= booking.pokemon.name %> - LVL <%= booking.pokemon.level %> - PRICE: <%= booking.pokemon.price %> P</p>
+        <p><%= booking.pokemon.name %> - LVL <%= booking.pokemon.level %> - PRICE: <%= number_with_delimiter(booking.pokemon.price, delimiter: ',') %> P</p>
         </li>
       </ul>
       <% end %>
