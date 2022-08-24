@@ -1,35 +1,39 @@
 <div class="container">
 <div class="cart-container">
   <h2>Your cart<h2>
-  <% @my_bookings.each do |booking| %>
-  <% if !booking.confirmed %>
-    <ul>
-      <li><%= booking.pokemon.name %> (Level <%= booking.pokemon.level %>)</li>
-    </ul>
-    <% end %>
+  <% if !@current_orders.empty? %>
+    <% @current_orders.each do |booking| %>
+        <ul>
+          <li><%= booking.pokemon.name %> (Level <%= booking.pokemon.level %>) - <%= booking.pokemon.price %> P</li>
+        </ul>
+      <% end %>
+      <div class="total">
+        <h4>Total</h4>
+        <p><%= @bookings_sum %> P </p>
+        <h5>Your balance</h5>
+        <p><%= @my_balance %> P</p>
+        <h5>Your balance after purchase</h5>
+        <% balance = @my_balance - @bookings_sum %>
+        <p><%= balance < 0 ? "You need to add at least #{-balance} P to your account to make this purchase." : "#{balance} P" %></p>
+      </div>
+
+      <div class="button-checkout">
+        <%= link_to 'checkout', confirm_path, data: {turbo_method: :post} %>
+      </div>
+    <% else %>
+    <p> You have nothing in your cart at the moment.</p>
   <% end %>
-    <div class="total">
-      <h4>Total</h4>
-      <p><%= @bookings_sum %> P </p>
-      <h5>Your balance</h5>
-      <p><%= @my_balance %> P</p>
-      <h5>Your balance after purchase</h5>
-      <p><%= @my_balance - @bookings_sum %> P</p>
-    </div>
 
-    <div class="button-checkout">
-      <%= link_to 'checkout', confirm_path, data: {turbo_method: :post} %>
-    </div>
 
-  <h2>Your previous orders</h2>
-  <% @my_bookings.each do |booking| %>
-  <% if booking.confirmed == true %>
-    <ul>
-      <li>
-      <p><%= booking.pokemon.name %> - LVL <%= booking.pokemon.level %> - PRICE: <%= booking.pokemon.price %> P</p>
-      </li>
-    </ul>
+  <% if !@past_orders.empty? %>
+    <h2>Your previous orders</h2>
+    <% @past_orders.each do |booking| %>
+      <ul>
+        <li>
+        <p><%= booking.pokemon.name %> - LVL <%= booking.pokemon.level %> - PRICE: <%= booking.pokemon.price %> P</p>
+        </li>
+      </ul>
+      <% end %>
     <% end %>
-   <% end %>
-</div>
+  </div>
 </div>

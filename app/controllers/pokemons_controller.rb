@@ -4,6 +4,9 @@ class PokemonsController < ApplicationController
 
   def index
     @pokemons = Pokemon.all
+    already_sold = Booking.all.select { |booking| booking.confirmed }
+    @unavailable_pokemons = already_sold.map { |booking| booking.pokemon }
+    # @available_pokemons = Booking.all.reject { |booking| booking.confirmed }
   end
 
   def show
