@@ -1,4 +1,5 @@
-<div>
+<div class="container">
+<div class="cart-container">
   <h2>Your cart<h2>
   <% @my_bookings.each do |booking| %>
   <% if !booking.confirmed %>
@@ -16,20 +17,19 @@
       <p><%= @my_balance - @bookings_sum %> P</p>
     </div>
 
-    <%= link_to 'checkout', confirm_path, data: {turbo_method: :post} %>
+    <div class="button-checkout">
+      <%= link_to 'checkout', confirm_path, data: {turbo_method: :post} %>
+    </div>
 
-  <br>
-  <br>
   <h2>Your previous orders</h2>
   <% @my_bookings.each do |booking| %>
   <% if booking.confirmed == true %>
     <ul>
       <li>
-      <%= booking.pokemon.name %> (Level <%= booking.pokemon.level %>)
-      <br>
-      <p><%= booking.pokemon.price %> P</p>
+      <p><%= booking.pokemon.name %> - LVL <%= booking.pokemon.level %> - PRICE: <%= booking.pokemon.price %> P</p>
       </li>
     </ul>
     <% end %>
    <% end %>
+</div>
 </div>
