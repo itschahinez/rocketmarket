@@ -1,3 +1,15 @@
+<div class="banner">
+  <div class="container-banner">
+    <div>
+      <h1>We catch them, you buy them</h1>
+      <p>(Mostly) wild caught pokemon</p>
+    </div>
+    <div id="search-flex">
+      <input class="search-design" type="text" placeholder="Search..">
+      <a href="#" class="button-go">GO</a>
+    </div>
+  </div>
+</div>
 <div class="container">
   <ul class="cards">
     <% @pokemons.each do |pokemon| %>
@@ -17,7 +29,7 @@
         </div>
         <div id="all-card-button">
           <%= link_to "See details", pokemon_path(pokemon), class: "card-button" %>
-          <%= link_to "See your cart", dashboard_path, class: "card-button" %>
+          <%# <%= link_to "Add to cart", pokemon_bookings_path(pokemon), method: :post, class: "card-button" %>
         </div>
       </div>
     <% end %>
