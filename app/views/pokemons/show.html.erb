@@ -4,13 +4,13 @@
     <div class="detail">
       <div class="info">
         <h1><%= @pokemon.name %></h1>
-        <h2> <%= @pokemon.price %></h2>
+        <h2> <%= @pokemon.price %> P</h2>
         <ul class="list">
-          <li> Type <br> <%= @pokemon.pokemon_type %></li>
+          <li> <p><strong>Type</strong></p> <%= @pokemon.pokemon_type %></li>
           <br>
-          <li> Level <br> <%= @pokemon.level %></li>
+          <li> <p><strong>Level</strong></p> <%= @pokemon.level %></li>
           <br>
-          <li> Description <br> <%= @pokemon.description %></li>
+          <li> <p><strong>Description</strong></p> <%= @pokemon.description %></li>
           <br>
         </ul>
       </div>

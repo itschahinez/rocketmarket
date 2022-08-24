@@ -13,8 +13,8 @@
   height: 550px;
   width: 450px;
   border-radius: 20px;
-  padding: 40px 50px 0px 50px;
-  margin-top: 20px;
+  padding: 30px 50px 0px 50px;
+  margin-top: 10px;
 }
 .info {
   background-color: white;
@@ -31,10 +31,12 @@ h2 {
   padding-left: 20px;
   color : $jessie-color;
 }
-.list {
-  padding-left: 20px;
-  padding-right: 25px;
-}
+
+// .list {
+//   padding-left: 20px;
+//   padding-right: 25px;
+// }
+
 .card-category {
   margin-top: 30px;
 }
