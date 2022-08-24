@@ -4,8 +4,9 @@
       <img class="poke-image" src="<%= @pokemon.picture %>" alt="Pokemon">
     </div>
     <div class="card-category">
+     <div class="detail">
       <h1><%= @pokemon.name %></h1>
-      <ul>
+      <ul class="list">
         <li> <%= @pokemon.pokemon_type %></li>
         <li> <%= @pokemon.level %></li>
         <li> <%= @pokemon.price %></li>
@@ -17,6 +18,7 @@
           <p>This pokemon has already been booked</p>
         <% end %>
       </ul>
+     </div>
     </div>
   </div>
   <div class="description"><%= @pokemon.description %></div>
