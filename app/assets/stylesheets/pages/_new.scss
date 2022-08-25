@@ -1,3 +1,31 @@
-.form {
+.container-new {
   width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+
+  p {
+    color: $jessie-color;
+  }
+
+  .form-control {
+    border-radius: 38px;
+    border: 1px solid $jessie-color;
+    padding-left: 10px;
+    padding: 6px 12px 6px 15px;
+    margin-right: 5px;
+  }
+
+  .card-button {
+    border: 1px;
+    display: flex;
+    justify-items: center;
+    margin: 30px auto;
+  }
+
+  h1 {
+    font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+  }
 }
