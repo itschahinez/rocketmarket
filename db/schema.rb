@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2022_08_25_092830) do
+=======
+ActiveRecord::Schema[7.0].define(version: 2022_08_24_160918) do
+>>>>>>> 5889e60bb5b428b46dd1ded277709673aa105a00
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +26,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_25_092830) do
     t.bigint "user_id"
     t.index ["pokemon_id"], name: "index_bookings_on_pokemon_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+<<<<<<< HEAD
+=======
+  end
+
+  create_table "past_orders", force: :cascade do |t|
+    t.bigint "booking_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.integer "level"
+    t.string "type"
+    t.text "description"
+    t.integer "price"
+    t.string "picture"
+    t.index ["booking_id"], name: "index_past_orders_on_booking_id"
+>>>>>>> 5889e60bb5b428b46dd1ded277709673aa105a00
   end
 
   create_table "pokemons", force: :cascade do |t|
@@ -53,4 +73,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_25_092830) do
 
   add_foreign_key "bookings", "pokemons"
   add_foreign_key "bookings", "users"
+<<<<<<< HEAD
+=======
+  add_foreign_key "past_orders", "bookings"
+>>>>>>> 5889e60bb5b428b46dd1ded277709673aa105a00
 end

@@ -1,10 +1,15 @@
 class PokemonsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
+  before_action :set_pokemon, only: [ :show, :create, :destroy ]
 
   def index
+    @pokemons = Pokemon.all
+    already_sold = Booking.all.select { |booking| booking.confirmed }
+    @unavailable_pokemons = already_sold.map { |booking| booking.pokemon }
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new
@@ -19,6 +24,7 @@ class PokemonsController < ApplicationController
   private
 
   def set_pokemon
+    @pokemon = Pokemon.find(params[:id])
   end
 
   def pokemon_params

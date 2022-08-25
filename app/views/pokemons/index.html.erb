@@ -1,0 +1,39 @@
+<div class="banner">
+  <div class="container-banner">
+    <div>
+      <h1>We catch them, you buy them</h1>
+      <p>(Mostly) wild caught pokemon</p>
+    </div>
+    <div id="search-flex">
+      <input class="search-design" type="text" placeholder="Search..">
+      <a href="#" class="button-go">GO</a>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <ul class="cards">
+    <% @pokemons.each do |pokemon| %>
+      <% unless @unavailable_pokemons.include?(pokemon) %>
+        <div class="card col-4 card-border card-center">
+          <div class="card-img">
+            <img src="<%= pokemon.picture %>" alt="Pokemon picture" class="pokemon-img">
+          </div>
+          <div class="card-description">
+            <div id="description-align-1">
+              <li><strong><%= pokemon.name %></strong></li>
+              <li><p><strong><%= pokemon.price %>P</strong></p></li>
+            </div>
+            <div id="description-align-2">
+              <li><%= pokemon.pokemon_type %></li>
+              <li><p><strong>LVL<%= pokemon.level %></strong></p></li>
+            </div>
+          </div>
+          <div id="all-card-button">
+            <%= link_to "See details", pokemon_path(pokemon), class: "card-button" %>
+            <%# <%= link_to "Add to cart", pokemon_bookings_path(pokemon), method: :post, class: "card-button" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
