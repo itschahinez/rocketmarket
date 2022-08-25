@@ -3,20 +3,21 @@
   border: 1px solid $jessie-color;
   width: 50%;
   padding: 20px;
+
+  p {
+    color: black;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  a:hover {
+    color: $jessie-color;
+  }
 }
 
-p {
-  color: black;
-}
-
-a {
-  text-decoration: none;
-  color: white;
-}
-
-a:hover {
-  color: $jessie-color;
-}
 
 .button-checkout {
   background-color: $james-color;
