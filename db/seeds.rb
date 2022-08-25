@@ -3,10 +3,13 @@
 Booking.destroy_all
 User.destroy_all
 
-puts 'Creating a buyer'
+puts 'Creating buyers'
 User.create(username: "Sasha", balance: 150_000, email: 'sasha@bourgpalette.net', password: 'Pikachuuu', picture: 'https://parismatch.be/app/uploads/2019/09/pokemon-sacha-pikachu-1100x715.jpg')
 puts" Sasha done"
+
 User.create(username: "Misty", balance: 400_000, email: 'misty@cerulean.net', password: 'Staryu', picture: 'https://fr.jugomobile.com/wp-content/uploads/2021/11/Pokemon-Lhistoire-de-Misty-dans-lanime.jpg')
+puts "Misty done"
+
 
 puts 'Creating the seller admins'
 jesse = User.create(username: "Jesse", balance: 0, admin: true, email: 'jesse@teamrocket.net', password: 'Miaous', picture: 'https://i.pinimg.com/474x/cb/bb/b1/cbbbb1a98bf9770064ac5475a3f5a802.jpg')
