@@ -15,12 +15,14 @@
     padding-top: 10px;
     padding-left: 20px;
     color : $jessie-color;
+    padding-bottom: 10px;
   }
 }
 .poke-image{
   height: 550px;
   box-shadow: $box-shadow;
   margin-top: 20px;
+
 }
 .detail {
   background-color: $james-color;
@@ -29,6 +31,23 @@
   border-radius: 20px;
   padding: 40px 50px 0px 50px;
   margin-top: 10px;
+  position: relative;
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  li {
+    margin-left: 7px;
+  }
+
+  .button-cart {
+  /*   margin-bottom: 13px;*/
+    margin-top: 0px;
+    position: absolute;
+    bottom: 3px;
+    left: 20%;
+  }
 }
 .info {
   background-color: white;
@@ -45,9 +64,4 @@
 .just {
   display: flex;
   justify-content: left;
-}
-
-.button-cart {
-  margin-bottom: 13px;
-  margin-top: 0px;
 }

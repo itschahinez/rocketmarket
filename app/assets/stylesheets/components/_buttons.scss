@@ -2,17 +2,19 @@
   display: block;
   width: 60%;
   height: 40px;
-  margin: 0 auto;
-  background-color: white;
+/*   margin: 0 auto;*/
+  margin: auto auto 20px auto;
+  background-color: #8F7DED;
   border: solid 1px $james-color;
   border-radius: 20px;
   margin-top: 30px;
-  font-weight: bold;
-  color: $jessie-color;
-  transition-duration: 1s;
+  /* font-weight: bold; */
+  color: white;
+  transition-duration: 0.5s;
 }
 
 .button-cart:hover {
-  background-color: $jessie-color;
-  color: white;
+  background-color: white;
+  color: #8F7DED;
+  box-shadow: 1px 1px 3px grey;
 }
