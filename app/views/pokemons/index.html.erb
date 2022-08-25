@@ -5,8 +5,16 @@
       <p>(Mostly) wild caught pokemon</p>
     </div>
     <div id="search-flex">
-      <input class="search-design" type="text" placeholder="Search..">
-      <a href="#" class="button-go">GO</a>
+      <%# <input class="search-design" type="text" placeholder="Search..">
+      <a href="#" class="button-go">GO</a> %>
+      <%= form_with url: pokemons_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a pokemon"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
 </div>
