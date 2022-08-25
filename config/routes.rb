@@ -11,8 +11,9 @@ Rails.application.routes.draw do
   # end
 
   resources :pokemons, only: [ :index, :show, :destroy, :new, :create ] do
-    resources :bookings, only: [ :update, :destroy, :create ]
+    resources :bookings, only: [ :update, :create ]
   end
+    resources :bookings, only: [ :destroy ]
 
   get '/dashboard', to: 'pages#dashboard' # pour afficher toutes les commandes passees etc.
   post '/confirm', to: 'bookings#confirm'

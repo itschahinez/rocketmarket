@@ -4,7 +4,10 @@
   <% if !@my_current_orders.empty? %>
     <% @my_current_orders.each do |booking| %>
         <ul>
-          <li><%= booking.pokemon.name %> (Level <%= booking.pokemon.level %>) - <%= number_with_delimiter(booking.pokemon.price, delimiter: ',') %> P</li>
+          <li> <%= link_to booking_path(booking), data: { turbo_method: :delete } do %>
+            <i class="fa-solid fa-trash-can"></i>
+          <% end %>
+          <%= booking.pokemon.name %> (Level <%= booking.pokemon.level %>) - <%= number_with_delimiter(booking.pokemon.price, delimiter: ',') %> P</li>
         </ul>
       <% end %>
       <div class="total">
