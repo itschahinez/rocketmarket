@@ -19,9 +19,13 @@ class PokemonsController < ApplicationController
   end
 
   def new
+    @pokemon = Pokemon.new
   end
 
   def create
+    @pokemon = Pokemon.new(pokemon_params)
+    @pokemon.save
+    redirect_to pokemon_path(@pokemon)
   end
 
   def destroy
@@ -34,5 +38,6 @@ class PokemonsController < ApplicationController
   end
 
   def pokemon_params
+    params.require(:pokemon).permit(:name, :pokemon_type, :picture, :level, :price)
   end
 end
