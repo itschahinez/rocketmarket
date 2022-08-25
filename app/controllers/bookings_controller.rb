@@ -21,8 +21,13 @@ class BookingsController < ApplicationController
       booking.confirmed = true
       booking.save
     end
-    # @bookings_sum = 0
     redirect_to dashboard_path
+  end
+
+  def destroy
+    @booking_to_destroy = Booking.find(@booking.id)
+    @booking_to_destroy.destroy
+    redirect_to dashboard_path, status: :see_other
   end
 
   private
