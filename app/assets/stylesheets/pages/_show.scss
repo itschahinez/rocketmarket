@@ -2,6 +2,20 @@
   justify-content: space-evenly;
   align-items: center;
   display: flex;
+
+  h1 {
+    text-align: left;
+    padding-top: 20px;
+    padding-left: 20px;
+    font-family: $headers-font;
+  }
+
+  h2 {
+    text-align: left;
+    padding-top: 10px;
+    padding-left: 20px;
+    color : $jessie-color;
+  }
 }
 .poke-image{
   height: 550px;
@@ -19,18 +33,7 @@
 .info {
   background-color: white;
 }
-h1 {
-  text-align: left;
-  padding-top: 20px;
-  padding-left: 20px;
-  font-family: $headers-font;
-}
-h2 {
-  text-align: left;
-  padding-top: 10px;
-  padding-left: 20px;
-  color : $jessie-color;
-}
+
 // .list {
 //   padding-left: 20px;
 //   padding-right: 25px;
@@ -42,4 +45,9 @@ h2 {
 .just {
   display: flex;
   justify-content: left;
+}
+
+.button-cart {
+  margin-bottom: 13px;
+  margin-top: 0px;
 }
