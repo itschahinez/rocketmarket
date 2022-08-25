@@ -15,6 +15,11 @@
     <% @pokemons.each do |pokemon| %>
       <% unless @unavailable_pokemons.include?(pokemon) %>
         <div class="card col-4 card-border card-center">
+          <% if user_signed_in? && current_user.admin? %>
+            <%= link_to pokemon_path(pokemon), data: { turbo_method: :delete } do %>
+            <i class="fa-solid fa-trash-can delete-card"></i>
+            <% end %>
+          <% end %>
           <div class="card-img">
             <img src="<%= pokemon.picture %>" alt="Pokemon picture" class="pokemon-img">
           </div>
