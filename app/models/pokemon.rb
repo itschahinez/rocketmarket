@@ -1,5 +1,5 @@
 class Pokemon < ApplicationRecord
-  has_one :booking
+  has_one :booking, dependent: :destroy
 
   # validates :name, presence: true
   # validates :level, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }

@@ -34,6 +34,15 @@ class PokemonsController < ApplicationController
   end
 
   def destroy
+    if user_signed_in? && current_user.admin?
+      @pokemon = Pokemon.find(params[:id])
+      if @pokemon.booking
+        flash[:alert] = "You cannot delete this pokemon because it has been booked by #{@pokemon.booking.user.username}"
+      else
+        @pokemon.destroy
+      end
+    end
+    redirect_to root_path, status: :see_other
   end
 
   private

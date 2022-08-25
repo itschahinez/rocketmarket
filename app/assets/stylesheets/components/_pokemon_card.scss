@@ -64,6 +64,13 @@
   justify-items: center;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  position: relative;
+}
+
+.delete-card{
+  position: absolute;
+  right: 10px;
+  color: $jessie-color;
 }
 
 .card-center{
