@@ -3,8 +3,9 @@
   border: 0;
   width: 260px;
   padding-left: 10px;
-  padding: 5px auto;
+  padding: 6px 12px 6px 15px;
   margin-right: 5px;
+
 }
 
 .button-go {
@@ -14,6 +15,7 @@
   padding: 4.5px 20px;
   text-decoration: none;
   border-radius: 38px;
+  border: 1px none;
 }
 
 .button-go:hover {
@@ -21,7 +23,7 @@
   font-weight: bold;
   transition: 1s ease;
   color: white;
-  background-color: rgba(0, 0, 0, 0.885);
+  background-color: $jessie-color;
   box-shadow: 1px 1px 3px black;
 }
 
