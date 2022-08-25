@@ -1,8 +1,16 @@
 class UsersController < ApplicationController
 
-  def edit
+
+  def update_balance
+    @user = User.find(params[:user_id])
+    @user.update(user_params)
+    raise
+    redirect_to dashboard_path
   end
 
-  def update
+  private
+
+  def user_params
+    params.require(:user).permit(:balance)
   end
 end

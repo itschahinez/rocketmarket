@@ -10,5 +10,6 @@ class PagesController < ApplicationController
     pokemon_prices = pokemon_ids.map { |id| Pokemon.find(id).price.to_i }
     @bookings_sum = pokemon_prices.sum
     @my_balance = User.find(current_user.id).balance
+    @user = current_user
   end
 end
