@@ -1,16 +1,15 @@
 
-<div class="container">
-  <h1>Add a new Pokemon</h1>
-    <div class="form d-flex">
+<div class="container-new">
+    <h1>Add a new Pokemon</h1>
+    <div class="form">
       <%= simple_form_for(@pokemon) do |f| %>
-        <%= f.input :name, class: 'search-design' %>
-        <%= f.input :level, class: 'search-design' %>
-        <%= f.input :pokemon_type, class: 'search-design' %>
-        <%= f.input :description, class: 'search-design'%>
-        <%= f.input :price, class: 'search-design' %>
+        <%= f.input :name, class: 'input' %>
+        <%= f.input :level, class: 'input' %>
+        <%= f.input :pokemon_type, class: 'input' %>
+        <%= f.input :description, class: 'input'%>
+        <%= f.input :price, class: 'input' %>
         <%# <%= f.input :picture, label: 'Enter URL' %>
-        <%= f.submit %>
+        <%= f.submit class: "card-button" %>
       <% end %>
     </div>
-    <%= link_to "Back to all Pokemons", pokemons_path %>
 </div>
