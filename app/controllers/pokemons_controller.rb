@@ -3,9 +3,15 @@ class PokemonsController < ApplicationController
   before_action :set_pokemon, only: [ :show, :create, :destroy ]
 
   def index
-    @pokemons = Pokemon.all
     already_sold = Booking.all.select { |booking| booking.confirmed }
     @unavailable_pokemons = already_sold.map { |booking| booking.pokemon }
+
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR pokemon_type ILIKE :query"
+      @pokemons = Pokemon.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @pokemons = Pokemon.all
+    end
   end
 
   def show
