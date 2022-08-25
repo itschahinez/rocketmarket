@@ -1,0 +1,14 @@
+<h1>Add a new Pokemon</h1>
+
+  <div class="form">
+    <%= simple_form_for(@pokemon) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :level %>
+      <%= f.input :pokemon_type %>
+      <%= f.input :description %>
+      <%= f.input :price %>
+      <%= f.input :picture, label: 'Enter URL' %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+  <%= link_to "Back to all Pokemons", pokemons_path %>
