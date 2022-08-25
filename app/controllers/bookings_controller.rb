@@ -21,8 +21,8 @@ class BookingsController < ApplicationController
       booking.confirmed = true
       booking.save
     end
-    @bookings_sum = 0
-    redirect_to pokemons_path
+    # @bookings_sum = 0
+    redirect_to dashboard_path
   end
 
   private
