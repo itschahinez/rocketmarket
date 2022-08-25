@@ -13,27 +13,31 @@
       <div class="total">
         <h4>Total</h4>
         <p><%= number_with_delimiter(@bookings_sum, delimiter: ',') %> P </p>
-        <h5>Your balance</h5>
+        <h4>Your balance</h4>
         <p><%= number_with_delimiter(@my_balance, delimiter: ',') %> P</p>
-        <h5>Your balance after purchase</h5>
-        <% balance = @my_balance - @bookings_sum %>
-        <p><%= balance.negative? ? "You need to add at least #{number_with_delimiter(-balance, delimiter: ',')} P to your account to make this purchase." : "#{number_with_delimiter(balance, delimiter: ',')} P" %></p>
-      </div>
+        <% balance_after_purchase = @my_balance - @bookings_sum %>
+      <% if balance_after_purchase.negative? %>
+        <div class="warning">
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <h4>Warning</h4>
+        </div>
+        <p>You need to add at least <%= number_with_delimiter(-balance_after_purchase, delimiter: ',') %> P to your account to make this purchase."</p>
 
-      <% if balance.negative? %>
         <div class="form-add-pokedollars">
           <%= simple_form_for(@user, url: update_balance_path(user_id: current_user.id), method: :put) do |f| %>
-            <%= f.input :balance, label: "How much do you want to add?" %>
-            <%= f.submit %>
+            <%= f.input :balance, label: "How much do you want to add?", input_html: { value: -balance_after_purchase } %>
+            <%= f.submit "Add Pokédollars", class: "button-cart" %>
           <% end %>
-          <%#= link_to 'Add Pokédollars', update_balance_path(user_id: current_user.id), data: { turbo_method: :put } %>
         </div>
       <% else %>
+        <h4>Your balance after purchase</h4>
+        <p><%= number_with_delimiter(balance_after_purchase, delimiter: ',') %> P</p>
         <div class="button-checkout">
           <%= link_to 'Checkout', confirm_path, data: {turbo_method: :post} %>
         </div>
+      </div>
       <% end %>
-    <% else %>
+  <% else %>
     <p> You have nothing in your cart at the moment.</p>
   <% end %>
 
