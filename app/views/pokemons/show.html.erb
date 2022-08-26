@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container pokemon-show-container">
   <div class="card-show">
     <%= image_tag @pokemon.picture, alt: "pokemon", class: "poke-image" %>
     <div class="detail">
       <div class="info">
         <h1><%= @pokemon.name %></h1>
-        <h2> <%= @pokemon.price %> P</h2>
+        <h2><%= number_with_delimiter(@pokemon.price, delimiter: ',') %> P</h2>
         <ul class="list">
           <li> <p><strong>Type</strong></p><%= @pokemon.pokemon_type %></li>
           <br>
@@ -14,19 +14,18 @@
           <br>
         </ul>
       </div>
-      <div>
       <% if @pokemon.can_be_booked? %>
           <%= simple_form_for [@pokemon, @booking] do |f|%>
             <%= f.input :pokemon, as: :hidden, value: @pokemon %>
             <%= f.submit "Add to cart", class: "button-cart" %>
           <% end %>
         <% elsif @pokemon.has_been_booked_by?(current_user) %>
-          <p>This pokemon is in your cart!</p>
+          <p class="already-in-cart-msg">This Pokemon is in your cart!</p>
         <% else %>
-          <p>This pokemon is not available right now!</p>
+          <p class="not-available-now-msg">Not available right now. Come back later.</p>
         <% end %>
           <%#= button_to “Add to cart”, pokemon_bookings_path(@pokemon), method: :post %>
-      </div>
-     </div>
+      <div>
+    </div>
   </div>
 </div>
