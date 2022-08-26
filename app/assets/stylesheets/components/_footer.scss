@@ -1,9 +1,11 @@
 body {
   position: relative;
+  min-height: 89vh;
 }
 
 footer {
   position: absolute;
+  bottom: 0;
   width: 100%;
   background-color: $james-color;
   color: white;
@@ -15,4 +17,5 @@ footer {
   align-items: center;
   justify-content: center;
   z-index: 1;
+  margin-bottom: -80px;
 }
