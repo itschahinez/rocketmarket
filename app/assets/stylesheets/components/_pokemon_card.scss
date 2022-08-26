@@ -92,6 +92,11 @@
   position: absolute;
 }
 
+.delete-mark  {
+  top: 10px;
+  right: 10px;
+}
+
 .fa-xmark:hover {
   color: $james-color;
   transition: 0.3s ease-in-out;

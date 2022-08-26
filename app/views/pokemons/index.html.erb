@@ -25,7 +25,7 @@
         <div class="card col-4 card-border card-center">
           <% if user_signed_in? && current_user.admin? %>
             <%= link_to pokemon_path(pokemon), data: { turbo_method: :delete } do %>
-            <i class="fa-solid fa-xmark"></i>
+            <i class="fa-solid fa-xmark delete-mark"></i>
             <% end %>
           <% end %>
           <div class="card-img">
@@ -43,7 +43,13 @@
           </div>
           <div id="all-card-button">
             <%= link_to "See details", pokemon_path(pokemon), class: "card-button" %>
-            <%= button_to "Add to cart", pokemon_bookings_path(pokemon), method: :post, class: "card-button border-0" %>
+            <% if pokemon.can_be_booked? %>
+              <%= button_to "Add to cart", pokemon_bookings_path(pokemon), method: :post, class: "card-button border-0" %>
+            <% elsif pokemon.has_been_booked_by?(current_user) %>
+              <p class="already-in-cart-msg">In cart!</p>
+            <% else %>
+              <p class="not-available-now-msg">Unavailable now</p>
+            <% end %>
           </div>
         </div>
       <% end %>
