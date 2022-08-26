@@ -71,7 +71,7 @@
             <div class="card-description">
               <div id="description-align-1">
                 <li><strong><%= pokemon.name %></strong></li>
-                <li><p><strong><%= pokemon.price %>P</strong></p></li>
+                <li><p><strong><%= number_with_delimiter(pokemon.price, delimiter: ',') %> P</strong></p></li>
               </div>
               <div id="description-align-2">
                 <li><%= pokemon.pokemon_type %></li>
