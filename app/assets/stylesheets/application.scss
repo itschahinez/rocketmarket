@@ -12,10 +12,11 @@
 @import "pages/index";
 
 a {
-  color: $jessie-color;
+  color: white;
   text-decoration: none;
 
   &:hover {
     color: $james-color;
+    text-decoration: none;
   }
 }
