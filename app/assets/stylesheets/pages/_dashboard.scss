@@ -6,40 +6,137 @@
 
   p {
     color: black;
+    font-size: 24px;
   }
 
-  a {
-    text-decoration: none;
-    color: white;
+  // a {
+  //   text-decoration: none;
+  //   color: white;
+  // }
+
+  // a:hover {
+  //   color: $jessie-color;
+  // }
+
+  h2 {
+    text-align: center;
+    font-size: 30px;
   }
 
-  a:hover {
-    color: $jessie-color;
+  hr {
+    width: 400px;
+    display: inline-block;
   }
+
+  // li {
+  //   align-items: left;
+  // }
 }
 
-
 .button-checkout {
-  background-color: $james-color;
+  display: block;
+  width: 60%;
+  height: 40px;
+/*   margin: 0 auto;*/
+  margin: auto auto 20px auto;
+  background-color: #8F7DED;
+  border: solid 1px $james-color;
+  border-radius: 20px;
+  margin-top: 30px;
+  /* font-weight: bold; */
   color: white;
-  border-radius: 38px;
-  box-shadow: 2px 2px 10px grey;
-  padding: 10px 20px;
-  text-decoration: none;
-  width: 167px;
-  text-align: center;
+  transition: 0.5s ease;
 }
 
 .button-checkout:hover {
-  text-decoration: none;
   background-color: white;
-  color: $james-color;
-  transition: 0.5s ease;
-  border: inset 1px solid $james-color;
-  width: 167px;
+  color: #8F7DED;
+  box-shadow: 1px 1px 3px grey;
+  transition: 0,5s ease;
+}
+// .button-checkout {
+//   background-color: $james-color;
+//   color: white;
+//   border-radius: 38px;
+//   box-shadow: 2px 2px 10px grey;
+//   padding: 10px 20px;
+//   text-decoration: none;
+//   width: 167px;
+//   text-align: center;
+//   display: flex;
+//   justify-content: center;
+// }
+
+// .button-checkout:hover {
+//   text-decoration: none;
+//   background-color: white;
+//   color: $james-color;
+//   transition: 0.5s ease;
+//   border: inset 1px solid $james-color;
+//   width: 167px;
+// }
+
+.list-pokemon {
+  display: flex;
+  justify-content: left;
+}
+.title-design {
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
 .warning {
-  display: flex;
   gap: 10px;
+  display: flex;
+  font-size: 24px;
+  font-weight: bold;
+  margin: auto 50px;
+  justify-content: left;
+}
+
+.warning h4 {
+  margin: auto 0 20px 0;
+}
+
+.message-add {
+  display: flex;
+  justify-items: left;
+  margin: 0 50px;
+  margin-bottom: 4px;
+}
+
+.total-dash {
+  justify-content: space-between;
+  display: flex;
+  font-size: 24px;
+  margin: auto 50px;
+}
+
+.balance-dash {
+  justify-content: space-between;
+  display: flex;
+  font-size: 24px;
+  margin: auto 50px;
+}
+
+.after-dash {
+  justify-content: space-between;
+  display: flex;
+  font-size: 24px;
+  margin: auto 50px;
+}
+
+.balance-after {
+  justify-content: space-between;
+  display: flex;
+  font-size: 24px;
+  margin: auto 50px;
+}
+
+.form-add-pokedollars {
+  margin: auto 50px;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  justify-content: left;
 }

@@ -1,40 +1,54 @@
 <div class="container">
 <div class="cart-container">
-  <h2>Your cart<h2>
+  <h2 class="title-design">Your cart<h2>
   <% if !@my_current_orders.empty? %>
     <% @my_current_orders.each do |booking| %>
         <ul>
-          <li> <%= link_to booking_path(booking), data: { turbo_method: :delete } do %>
-            <i class="fa-solid fa-trash-can"></i>
-          <% end %>
-          <%= booking.pokemon.name %> (Level <%= booking.pokemon.level %>) - <%= number_with_delimiter(booking.pokemon.price, delimiter: ',') %> P</li>
+          <div class="list-pokemon">
+            <li> <%= link_to booking_path(booking), data: { turbo_method: :delete } do %>
+              <i class="fa-solid fa-trash-can"></i>
+            <% end %>
+            <%= booking.pokemon.name %> (Level <%= booking.pokemon.level %>) - <%= number_with_delimiter(booking.pokemon.price, delimiter: ',') %> P</li>
+          </div>
         </ul>
       <% end %>
+      <hr class="line-dashboard">
       <div class="total">
-        <h4>Total</h4>
-        <p><%= number_with_delimiter(@bookings_sum, delimiter: ',') %> P </p>
-        <h4>Your balance</h4>
-        <p><%= number_with_delimiter(@my_balance, delimiter: ',') %> P</p>
-        <% balance_after_purchase = @my_balance - @bookings_sum %>
-      <% if balance_after_purchase.negative? %>
-        <div class="warning">
-          <i class="fa-solid fa-skull-crossbones"></i>
-          <h4>Warning</h4>
+        <div class="total-dash">
+          <h4>Total</h4>
+          <p><%= number_with_delimiter(@bookings_sum, delimiter: ',') %> P </p>
         </div>
-        <p>You need to add at least <%= number_with_delimiter(-balance_after_purchase, delimiter: ',') %> P to your account to make this purchase."</p>
-
-        <div class="form-add-pokedollars">
-          <%= simple_form_for(@user, url: update_balance_path(user_id: current_user.id), method: :put) do |f| %>
-            <%= f.input :balance, label: "How much do you want to add?", input_html: { value: -balance_after_purchase } %>
-            <%= f.submit "Add Pokédollars", class: "button-cart" %>
-          <% end %>
+        <div class="balance-dash">
+          <h4>Your balance</h4>
+          <p><%= number_with_delimiter(@my_balance, delimiter: ',') %> P</p>
         </div>
-      <% else %>
-        <h4>Your balance after purchase</h4>
-        <p><%= number_with_delimiter(balance_after_purchase, delimiter: ',') %> P</p>
-        <div class="button-checkout">
-          <%= link_to 'Checkout', confirm_path, data: {turbo_method: :post} %>
+        <div class="after-dash">
+          <% balance_after_purchase = @my_balance - @bookings_sum %>
+          <% if balance_after_purchase.negative? %>
+            </div>
+            <hr>
+            <div class="warning">
+              <h4 class="warning">Warning</h4>
+            </div>
+            <div class="message-add">
+              <p>"You need to add at least <strong><%= number_with_delimiter(-balance_after_purchase, delimiter: ',') %> P </strong> to your account to make this purchase."</p>
+            </div>
+            <div class="form-add-pokedollars">
+              <%= simple_form_for(@user, url: update_balance_path(user_id: current_user.id), method: :put) do |f| %>
+                <%= f.input :balance, label: "How much do you want to add?", input_html: { value: -balance_after_purchase } %>
+            </div>
+                <%= f.submit "Add Pokédollars", class: "button-checkout" %>
+              <% end %>
+          <% else %>
         </div>
+        <div class="balance-after">
+          <h4>After purchase</h4>
+          <p><%= number_with_delimiter(balance_after_purchase, delimiter: ',') %> P</p>
+        </div>
+      </div>
+      <div class="button-checkout">
+        <%= link_to 'Checkout', confirm_path, data: {turbo_method: :post} %>
+      </div>
       </div>
       <% end %>
   <% else %>
