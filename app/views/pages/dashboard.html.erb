@@ -1,12 +1,14 @@
 <div class="container">
-<div class="cart-container">
+<div class="cart-container card">
   <h2 class="title-design">Your cart<h2>
   <% if !@my_current_orders.empty? %>
     <% @my_current_orders.each do |booking| %>
         <ul>
           <div class="list-pokemon">
             <li> <%= link_to booking_path(booking), data: { turbo_method: :delete } do %>
-              <i class="fa-solid fa-xmark"></i>
+              <div class="cross-delete">
+                <i class="fa-solid fa-xmark"></i>
+              </div>
             <% end %>
             <%= booking.pokemon.name %> (Level <%= booking.pokemon.level %>) - <%= number_with_delimiter(booking.pokemon.price, delimiter: ',') %> P</li>
           </div>
@@ -31,7 +33,7 @@
               <h4 class="warning">Warning</h4>
             </div>
             <div class="message-add">
-              <p>"You need to add at least <strong><%= number_with_delimiter(-balance_after_purchase, delimiter: ',') %> P </strong> to your account to make this purchase."</p>
+              <p>You need to add at least <strong><%= number_with_delimiter(-balance_after_purchase, delimiter: ',') %> P </strong> to your account to make this purchase.</p>
             </div>
             <div class="form-add-pokedollars">
               <%= simple_form_for(@user, url: update_balance_path(user_id: current_user.id), method: :put) do |f| %>
@@ -52,19 +54,31 @@
       </div>
       <% end %>
   <% else %>
-    <p> You have nothing in your cart at the moment.</p>
+    <p class="message-add"> You have nothing in your cart at the moment.</p>
   <% end %>
-
-
-  <% if !@my_past_orders.empty? %>
-    <h2>Your previous orders</h2>
-    <% @my_past_orders.each do |booking| %>
-      <ul>
-        <li>
-        <p><%= booking.pokemon.name %> - LVL <%= booking.pokemon.level %> - PRICE: <%= number_with_delimiter(booking.pokemon.price, delimiter: ',') %> P</p>
-        </li>
-      </ul>
-      <% end %>
-    <% end %>
   </div>
 </div>
+
+<% if !@my_past_orders.empty? %>
+  <h2 class="title-design-2 text-center p-3">Your previous orders</h2>
+    <ul class="cards">
+      <% @my_past_orders.each do |booking| %>
+        <% pokemon = booking.pokemon %>
+          <div class="card col-4 card-border card-center">
+            <div class="card-img">
+              <img src="<%= pokemon.picture %>" alt="Pokemon picture" class="pokemon-img">
+            </div>
+            <div class="card-description">
+              <div id="description-align-1">
+                <li><strong><%= pokemon.name %></strong></li>
+                <li><p><strong><%= pokemon.price %>P</strong></p></li>
+              </div>
+              <div id="description-align-2">
+                <li><%= pokemon.pokemon_type %></li>
+                <li><p><strong>LVL<%= pokemon.level %></strong></p></li>
+              </div>
+            </div>
+          </div>
+        <% end %>
+    </ul>
+<% end %>

@@ -6,7 +6,7 @@
 
   p {
     color: black;
-    font-size: 24px;
+    font-size: 20px;
   }
 
   // a {
@@ -28,9 +28,9 @@
     display: inline-block;
   }
 
-  // li {
-  //   align-items: left;
-  // }
+  li {
+    font-size: 24px;
+  }
 }
 
 .button-checkout {
@@ -46,6 +46,7 @@
   /* font-weight: bold; */
   color: white;
   transition: 0.5s ease;
+  font-size: medium;
 }
 
 .button-checkout:hover {
@@ -79,10 +80,19 @@
 .list-pokemon {
   display: flex;
   justify-content: left;
+  margin-left: 18px;
+  position: relative;
 }
+
 .title-design {
   margin-bottom: 20px;
   font-weight: bold;
+}
+
+.title-design-2 {
+  margin-bottom: 20px;
+  font-weight: bold;
+  margin-top: 18px;
 }
 
 .warning {
@@ -100,9 +110,17 @@
 
 .message-add {
   display: flex;
-  justify-items: left;
+  justify-items: center;
   margin: 0 50px;
   margin-bottom: 4px;
+  text-align: left;
+  font-size: 20px;
+}
+
+.pokemon-bought {
+  // margin-left: 18px;
+  display: flex;
+  justify-content: left;
 }
 
 .total-dash {
@@ -148,4 +166,10 @@
 .fa-xmark:hover {
   color: $james-color;
   transition: 0.3s ease-in-out;
+}
+
+.cross-delete {
+  position: absolute;
+  left: -20px;
+  top: 2px;
 }
