@@ -39,7 +39,7 @@
               <%= simple_form_for(@user, url: update_balance_path(user_id: current_user.id), method: :put) do |f| %>
                 <%= f.input :balance, label: "How much do you want to add?", input_html: { value: -balance_after_purchase } %>
             </div>
-                <%= f.submit "Add Pokédollars", class: "button-checkout" %>
+                <%= f.submit "Add Pokédollars", class: "button-checkout check-size" %>
               <% end %>
           <% else %>
         </div>
