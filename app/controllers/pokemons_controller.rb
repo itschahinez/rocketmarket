@@ -5,7 +5,7 @@ class PokemonsController < ApplicationController
   def index
     already_sold = Booking.all.select { |booking| booking.confirmed }
     @unavailable_pokemons = already_sold.map { |booking| booking.pokemon }
-
+    @booking = Booking.new
     if params[:query].present?
       sql_query = "name ILIKE :query OR pokemon_type ILIKE :query"
       @pokemons = Pokemon.where(sql_query, query: "%#{params[:query]}%")
