@@ -5,6 +5,7 @@
   height: 330px;
   box-shadow: 1px 1px 3px grey;
   width: 300px;
+  position: relative;
 }
 
 .card-button {
@@ -84,6 +85,16 @@
 
 .container {
   margin-top: 20px;
+}
+
+.fa-xmark {
+  color: grey;
+  position: absolute;
+}
+
+.fa-xmark:hover {
+  color: $james-color;
+  transition: 0.3s ease-in-out;
 }
 
 
