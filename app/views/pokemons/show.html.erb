@@ -21,9 +21,9 @@
             <%= f.submit "Add to cart", class: "button-cart" %>
           <% end %>
         <% elsif @pokemon.has_been_booked_by?(current_user) %>
-          <% flash[:notice] = 'This pokemon is in your cart!' %>
+          <p>This pokemon is in your cart!</p>
         <% else %>
-          <% flash[:alert] = 'This pokemon is not available right now!' %>
+          <p>This pokemon is not available right now!</p>
         <% end %>
           <%#= button_to “Add to cart”, pokemon_bookings_path(@pokemon), method: :post %>
       </div>
