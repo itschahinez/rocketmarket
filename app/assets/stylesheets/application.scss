@@ -10,3 +10,12 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+a {
+  color: $jessie-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $james-color;
+  }
+}

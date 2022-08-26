@@ -15,10 +15,16 @@
         </ul>
       </div>
       <div>
+      <% if @pokemon.can_be_booked? %>
           <%= simple_form_for [@pokemon, @booking] do |f|%>
             <%= f.input :pokemon, as: :hidden, value: @pokemon %>
             <%= f.submit "Add to cart", class: "button-cart" %>
           <% end %>
+        <% elsif @pokemon.has_been_booked_by?(current_user) %>
+          <p>This pokemon is in your cart!</p>
+        <% else %>
+          <p>This pokemon is not available right now!</p>
+        <% end %>
           <%#= button_to “Add to cart”, pokemon_bookings_path(@pokemon), method: :post %>
       </div>
      </div>
