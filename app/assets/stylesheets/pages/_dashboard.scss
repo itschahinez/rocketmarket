@@ -46,7 +46,6 @@
   /* font-weight: bold; */
   color: white;
   transition: 0.5s ease;
-  font-size: medium;
 }
 
 .button-checkout:hover {
@@ -54,6 +53,10 @@
   color: #8F7DED;
   box-shadow: 1px 1px 3px grey;
   transition: 0,5s ease;
+}
+
+.check-size {
+  font-size: 18px;
 }
 // .button-checkout {
 //   background-color: $james-color;
